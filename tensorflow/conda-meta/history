@@ -1,0 +1,60 @@
+==> 2019-01-28 01:05:50 <==
+# cmd: C:\Users\miiwo\Anaconda3\Scripts\conda create --name tensorflow python=3.7
+# conda version: 4.5.12
++defaults::ca-certificates-2018.12.5-0
++defaults::certifi-2018.11.29-py37_0
++defaults::openssl-1.1.1a-he774522_0
++defaults::pip-18.1-py37_0
++defaults::python-3.7.2-h8c8aaf0_0
++defaults::setuptools-40.6.3-py37_0
++defaults::sqlite-3.26.0-he774522_0
++defaults::vc-14.1-h0510ff6_4
++defaults::vs2015_runtime-14.15.26706-h3a45250_0
++defaults::wheel-0.32.3-py37_0
++defaults::wincertstore-0.2-py37_0
+# update specs: ['python=3.7']
+==> 2019-01-28 01:09:13 <==
+# cmd: C:\Users\miiwo\Anaconda3\Scripts\conda install tensorflow
+# conda version: 4.5.12
+-defaults::certifi-2018.11.29-py37_0
+-defaults::pip-18.1-py37_0
+-defaults::python-3.7.2-h8c8aaf0_0
+-defaults::setuptools-40.6.3-py37_0
+-defaults::wheel-0.32.3-py37_0
+-defaults::wincertstore-0.2-py37_0
++defaults::_tflow_select-2.2.0-eigen
++defaults::absl-py-0.7.0-py36_0
++defaults::astor-0.7.1-py36_0
++defaults::blas-1.0-mkl
++defaults::certifi-2018.11.29-py36_0
++defaults::gast-0.2.2-py36_0
++defaults::grpcio-1.16.1-py36h351948d_1
++defaults::h5py-2.9.0-py36h5e291fa_0
++defaults::hdf5-1.10.4-h7ebc959_0
++defaults::icc_rt-2019.0.0-h0cc432a_1
++defaults::intel-openmp-2019.1-144
++defaults::keras-applications-1.0.6-py36_0
++defaults::keras-preprocessing-1.0.5-py36_0
++defaults::libprotobuf-3.6.1-h7bd577a_0
++defaults::markdown-3.0.1-py36_0
++defaults::mkl-2019.1-144
++defaults::mkl_fft-1.0.10-py36h14836fe_0
++defaults::mkl_random-1.0.2-py36h343c172_0
++defaults::numpy-1.15.4-py36h19fb1c0_0
++defaults::numpy-base-1.15.4-py36hc3f5095_0
++defaults::pip-18.1-py36_0
++defaults::protobuf-3.6.1-py36h33f27b4_0
++defaults::pyreadline-2.1-py36_1
++defaults::python-3.6.8-h9f7ef89_0
++defaults::scipy-1.2.0-py36h29ff71c_0
++defaults::setuptools-40.6.3-py36_0
++defaults::six-1.12.0-py36_0
++defaults::tensorboard-1.12.2-py36h33f27b4_0
++defaults::tensorflow-1.12.0-eigen_py36h67ac661_0
++defaults::tensorflow-base-1.12.0-eigen_py36h45df0d8_0
++defaults::termcolor-1.1.0-py36_1
++defaults::werkzeug-0.14.1-py36_0
++defaults::wheel-0.32.3-py36_0
++defaults::wincertstore-0.2-py36h7fe50ca_0
++defaults::zlib-1.2.11-h62dcd97_3
+# update specs: ['tensorflow']
