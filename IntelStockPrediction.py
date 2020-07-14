@@ -22,7 +22,8 @@ import datetime
 
 #=================================================================================
 #               Processing the data from API based on User Input and preference
-#================================================================================
+#                                        Randy
+#=================================================================================
 
 # type the name
 print("Example: Google: GOOGL | Intel: INTL ")
@@ -88,6 +89,7 @@ x_train = np.reshape(x_train, (x_train.shape[0], x_train.shape[1], 1))
 
 #=================================================================================
 #               BUILDING THE NEURAL NETWORK
+#                           Christian
 #=================================================================================
 
 from keras.models import Sequential
@@ -121,7 +123,7 @@ regressor.add(Dropout(0.2))
 regressor.add(Dense(units = 1))
 
 regressor.compile(optimizer = 'adam', loss = 'mean_squared_error')
-regressor.fit(x_train, y_train, epochs = 100, batch_size = 32)
+regressor.fit(x_train, y_train, epochs = 50, batch_size = 32)
 
 
 
