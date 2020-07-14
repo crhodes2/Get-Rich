@@ -8,6 +8,7 @@ import tensorflow as tf
 import sklearn
 import pandas as pd
 import numpy as np
+from pathlib import Path
 
 # ================================= 
 # Other libraries just as important
@@ -22,19 +23,24 @@ import datetime
 
 #=================================================================================
 #               Processing the data from API based on User Input and preference
-#                                        Randy
-#=================================================================================
+#================================================================================
 
 # type the name
 print("Example: Google: GOOGL | Intel: INTL ")
 print("---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ")
-print("Warning: When extracting data from a company, if data doesn't exist yet, you'll get an error on string.")
-print("...just open the csv file it got saved into and remove the very first column next to date, and save and try again.")
+print("---- ---- ---- ---- ---- ---- ---- ---- GET RICH - 2020 ---- ---- ---- ---- ---- ---- ---- ---- ")
 print("---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ")
 ticker = input("Enter the ticker of a company (Search name of company for their ticker)? ")
 type(ticker)
 
 alpha_api_key = 'C5C28C1UTUGHH30R'
+
+
+#file_path = 'api.txt'
+#contents = Path(file_path).read_text()
+#alpha_api_key = contents
+
+
 
 # JSON file with all the stock market data for AAL from the last 20 years
 url_string = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=%s&outputsize=full&apikey=%s"%(ticker, alpha_api_key)
@@ -61,15 +67,15 @@ if not os.path.exists(file_to_save):
 
 else:
     print('File already exists. Loading data from CSV')
-    df = pd.read_csv(file_to_save)
-    df = pd.read_csv(test_file)
+    df = pd.read_csv(file_to_save, index_col=0)
+    df = pd.read_csv(test_file, index_col=0)
 
 df = df.sort_values('Date')
 df.head()
 
 
 # Importing the training set
-dataset_train = pd.read_csv(file_to_save)
+dataset_train = pd.read_csv(file_to_save, index_col=0)
 #dataset_train = pd.read_csv('Google_Stock_Price_Train.csv')
 training_set = dataset_train.iloc[:, 1:2].values
 
@@ -89,7 +95,6 @@ x_train = np.reshape(x_train, (x_train.shape[0], x_train.shape[1], 1))
 
 #=================================================================================
 #               BUILDING THE NEURAL NETWORK
-#                           Christian
 #=================================================================================
 
 from keras.models import Sequential
@@ -123,7 +128,7 @@ regressor.add(Dropout(0.2))
 regressor.add(Dense(units = 1))
 
 regressor.compile(optimizer = 'adam', loss = 'mean_squared_error')
-regressor.fit(x_train, y_train, epochs = 50, batch_size = 32)
+regressor.fit(x_train, y_train, epochs = 100, batch_size = 32)
 
 
 
@@ -132,7 +137,7 @@ regressor.fit(x_train, y_train, epochs = 50, batch_size = 32)
 # Getting the real stock price of 2017
 # dataset_test = pd.read_csv('Google_Stock_Price_Test.csv')
 
-dataset_test = pd.read_csv(test_file)
+dataset_test = pd.read_csv(test_file, index_col=0)
 real_stock_price = dataset_test.iloc[:, 1:2].values
 
 # Getting the predicted stock price of 2017
